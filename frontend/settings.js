@@ -101,7 +101,8 @@ const getAppSettingsByTheme = (namespaceConfig, theme, pathToConfig) => {
         namespaceJson.path
             .replace(/%SPRYKER_BUILD_HASH%/gi, process.env.SPRYKER_BUILD_HASH || 'current')
             .replace(/%namespace%/gi, namespaceConfig.namespace)
-            .replace(/%theme%/gi, theme);
+            .replace(/%theme%/gi, theme)
+            .replace(/%codeBucket%/gi, namespaceConfig.codeBucket);
 
     const getPublicStaticUrl = () => namespaceJson.staticPath;
 
@@ -109,9 +110,11 @@ const getAppSettingsByTheme = (namespaceConfig, theme, pathToConfig) => {
     const getAllCodeBuckets = () => namespaceJson.namespaces.map(namespace => namespace.codeBucket);
 
     // get array of ignored modules
+   // console.dir( getAllCodeBuckets())
+    //console.log('namespacecnfig codebucket',namespaceConfig.codeBucket)
     const ignoreModulesCollection = () =>
         getAllCodeBuckets()
-            .filter(suffix => suffix !== namespaceConfig.codeBucket)
+            .filter(suffix => suffix && suffix !== namespaceConfig.codeBucket)
             .map(suffix => `!**/*${suffix}/Theme/**`);
 
     // define ignore patterns
