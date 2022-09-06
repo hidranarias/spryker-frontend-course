@@ -1,3 +1,4 @@
+{% extends model('component') %}
 {% define config = {
     name: 'product-social',
     tag: 'div'
@@ -8,34 +9,42 @@
     showInstagram: 1,
     showLinkedin: 1,
     showPinterest: 1,
-    showFacebook: 1
+    showFacebook: 0
 } %}
 
 {% block body %}
-    <div class ="{{ config.name }}__container">
-        <!-- Facebook -->
-        <a class="btn btn-primary" style="background-color: #3b5998;" href="#!" role="button"
-        ><i class="bi bi-facebook-f"></i
-            ></a>
 
+    <div class ="{{ config.name }}__container">
+        {% if data.showFacebook %}
+        <!-- Facebook -->
+        <a target="_blank" class="btn btn-primary" style="background-color: #3b5998;" href="#!" role="button"
+        ><i class="bi bi-facebook"></i
+            ></a>
+        {% endif %}
+        {% if data.showTwitter %}
         <!-- Twitter -->
-        <a class="btn btn-primary" style="background-color: #55acee;" href="#!" role="button"
+        <a target="_blank" class="btn btn-primary" style="background-color: #55acee;" href="#!" role="button"
         ><i class="bi bi-twitter"></i
             ></a>
+        {% endif %}
+        {% if data.showInstagram %}
         <!-- Instagram -->
-        <a class="btn btn-primary" style="background-color: #ac2bac;" href="#!" role="button"
+        <a target="_blank" class="btn btn-primary" style="background-color: #ac2bac;" href="#!" role="button"
         ><i class="bi bi-instagram"></i
             ></a>
-
+        {% endif %}
+        {% if data.showLinkedin %}
         <!-- Linkedin -->
-        <a class="btn btn-primary" style="background-color: #0082ca;" href="#!" role="button"
+        <a target="_blank" class="btn btn-primary" style="background-color: #0082ca;" href="#!" role="button"
         ><i class="bi bi-linkedin"></i
             ></a>
+        {% endif %}
 
         <!-- Pinterest -->
-        <a class="btn btn-primary" style="background-color: #c61118;" href="#!" role="button"
+        {% if data.showPinterest %}
+        <a target="_blank" class="btn btn-primary" style="background-color: #c61118;" href="#!" role="button"
         ><i class="bi bi-pinterest"></i
             ></a>
-
+        {% endif %}
     </div>
 {% endblock body %}
