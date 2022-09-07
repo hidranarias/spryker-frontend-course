@@ -9,8 +9,14 @@
     showInstagram: 1,
     showLinkedin: 1,
     showPinterest: 1,
-    showFacebook: 0
+    showFacebook: 0,
+    product: required,
+    shopUrl : _view.productUrl,
+    shopHost: app.request.getSchemeAndHttpHost(),
+    title: _view.product.metaTitle | default(_view.product.name)
 } %}
+{% set productUrl = "#{data.shopHost } /#{data.shopUrl}" %}
+{% set twitterUrl = "https://twitter.com/intent/tweet?text=#{data.title | url_encode}&url=#{productUrl | url_encode}"  %}
 
 {% block body %}
 
@@ -23,7 +29,7 @@
         {% endif %}
         {% if data.showTwitter %}
         <!-- Twitter -->
-        <a target="_blank" class="btn btn-primary" style="background-color: #55acee;" href="#!" role="button"
+        <a target="_blank" class="btn btn-primary" style="background-color: #55acee;" href="{{twitterUrl}}" role="button"
         ><i class="bi bi-twitter"></i
             ></a>
         {% endif %}
