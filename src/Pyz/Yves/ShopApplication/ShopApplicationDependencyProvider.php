@@ -83,6 +83,7 @@ use SprykerShop\Yves\ProductReviewWidget\Widget\ProductReviewDisplayWidget;
 use SprykerShop\Yves\ProductSearchWidget\Widget\ProductConcreteAddWidget;
 use SprykerShop\Yves\ProductSearchWidget\Widget\ProductConcreteSearchGridWidget;
 use SprykerShop\Yves\ProductSearchWidget\Widget\ProductConcreteSearchWidget;
+use Pyz\Yves\ProductSocialWidget\Widget\ProductSocialWidget;
 use SprykerShop\Yves\ProductWidget\Widget\CatalogPageProductWidget;
 use SprykerShop\Yves\ProductWidget\Widget\CmsProductGroupWidget;
 use SprykerShop\Yves\ProductWidget\Widget\CmsProductWidget;
@@ -180,6 +181,7 @@ class ShopApplicationDependencyProvider extends SprykerShopApplicationDependency
             OrderCancelButtonWidget::class,
             CartAddProductAsSeparateItemWidget::class,
             AssetWidget::class,
+            ProductSocialWidget::class
         ];
     }
 
