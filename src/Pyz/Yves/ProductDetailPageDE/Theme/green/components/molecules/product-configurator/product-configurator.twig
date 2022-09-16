@@ -137,8 +137,8 @@
             {% endif %}
 
             {% widget 'CartAddProductAsSeparateItemWidget' only %}{% endwidget %}
-            {% widget 'ProductSocialWidget' args [data.product, ['twiter','facebook']] only %}
-            {% endwidget %}
+         {% widget 'ProductSocialWidget'  only %}
+         {% endwidget %}
             {% include molecule('product-social','ProductDetailPageDE') %}
         {% endblock %}
     {% endwidget %}
