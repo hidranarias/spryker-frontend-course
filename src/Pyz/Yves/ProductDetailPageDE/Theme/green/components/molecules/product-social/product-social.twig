@@ -15,8 +15,8 @@
     shopHost: app.request.getSchemeAndHttpHost(),
     title: _view.product.metaTitle | default(_view.product.name)
 } %}
-{% set productUrl = "#{data.shopHost } /#{data.shopUrl}" %}
-{% set twitterUrl = "https://twitter.com/intent/tweet?text=#{data.title | url_encode}&url=#{productUrl | url_encode}"  %}
+{% set productUrl = "#{data.shopHost } /#{data.product.url}" %}
+{% set twitterUrl = "https://twitter.com/intent/tweet?text=#{data.product.name | url_encode}&url=#{productUrl | url_encode}"  %}
 
 {% block body %}
 
