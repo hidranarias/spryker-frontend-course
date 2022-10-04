@@ -10,13 +10,13 @@
     showLinkedin: 1,
     showPinterest: 1,
     showFacebook: 0,
-    product: required,
-    shopUrl : _view.productUrl,
-    shopHost: app.request.getSchemeAndHttpHost(),
-    title: _view.product.metaTitle | default(_view.product.name)
+    productName : required,
+    prudctUrl: required,
+    shopHost: app.request.getSchemeAndHttpHost()
+
 } %}
-{% set productUrl = "#{data.shopHost } /#{data.product.url}" %}
-{% set twitterUrl = "https://twitter.com/intent/tweet?text=#{data.product.name | url_encode}&url=#{productUrl | url_encode}"  %}
+{% set productUrl = "#{data.shopHost } /#{data.productUrl}" %}
+{% set twitterUrl = "https://twitter.com/intent/tweet?text=#{data.productName | url_encode}&url=#{productUrl | url_encode}"  %}
 
 {% block body %}
 

@@ -57,7 +57,7 @@
                 } only %}
             </div>
         {% endwidget %}
-        
+
     </div>
     {% if data.isBundle != null %}
         {% embed molecule('toggler-item') with {
@@ -137,6 +137,10 @@
             {% endif %}
 
             {% widget 'CartAddProductAsSeparateItemWidget' only %}{% endwidget %}
+
+            {% set productName = data.product.name | default %}
+            {% widget 'ProductSocialWidget'  args [productName,data.product.url, ['linkedin','twitter']]  only %}
+            {% endwidget %}
         {% endblock %}
     {% endwidget %}
 
