@@ -5,8 +5,8 @@
 
 } %}
 {% block body %}
-    <h1> I'm a product social widget</h1>
-    {% include molecule('product-social','ProductDetailPageDE') with {
+    <h1> Share this product</h1>
+    {% include molecule('product-social','ProductSocialWidget') with {
         data: {
             showTwitter:  'twitter' in data.socialIcons,
 
